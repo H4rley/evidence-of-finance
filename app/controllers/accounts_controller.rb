@@ -33,6 +33,6 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:name, :critical_amount, :send_notifications)
+    params.require(:account).permit(:name, :critical_amount, :send_notifications, :sum)
   end
 end

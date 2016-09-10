@@ -1,7 +1,18 @@
 <%= form_for account do |f| %>
     <p>
+      <% account.errors.full_messages.each do |msg| %>
+          <%= msg %>
+      <% end %>
+    </p>
+
+    <p>
       <%= f.label :name %><br>
       <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :sum %><br>
+      <%= f.text_field :sum %>
     </p>
 
     <p>

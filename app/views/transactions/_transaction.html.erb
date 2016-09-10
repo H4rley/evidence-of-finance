@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    <%= transaction.user_email %>
+  </td>
+  <td>
+    <%= transaction.created_at %>
+  </td>
+  <td>
+    <%= transaction.purpose %>
+  </td>
+  <td>
+    <% if transaction.movement == "input" %>
+        <%= transaction.sum %>
+    <% else %>
+        <%= "-#{transaction.sum}" %>
+    <% end %>
+  </td>
+  <td>
+    <%= transaction.category_name %>
+  </td>
+</tr>

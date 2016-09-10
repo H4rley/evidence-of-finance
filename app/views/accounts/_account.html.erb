@@ -3,12 +3,18 @@
     <%= account.name %>
   </td>
   <td>
+    <%= account.sum %>
+  </td>
+  <td>
     <%= account.critical_amount %>
   </td>
   <td>
     <%= account.send_notifications %>
   </td>
   <td>
-    <%= link_to 'Edit', edit_account_path(account) %>
+    <%= link_to 'Show transactions', account_transactions_path(account) %>
+  </td>
+  <td>
+    <%= link_to 'Edit account', edit_account_path(account) %>
   </td>
 </tr>

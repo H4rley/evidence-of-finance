@@ -23,7 +23,7 @@ class Transactions::Provider
 
   def notify_user
     return unless @account.send_notifications
-    UserMailer.critical_amount_on_account(@account).deliver_now if @account.sum < @account.critical_amount
+    @account.sum < @account.critical_amount ? UserMailer.critical_amount_on_account(@account).deliver_now : true
   end
 
 end

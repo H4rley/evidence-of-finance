@@ -1,2 +1,4 @@
-<h1>New transaction</h1>
+<h1>
+  <%= "New transaction, actual sum #{@account.sum}" %>
+</h1>
 <%= render 'form', account: @account, transaction: @transaction %>

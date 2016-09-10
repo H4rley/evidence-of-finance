@@ -1,0 +1,32 @@
+<%= form_for account do |f| %>
+    <p>
+      <% account.errors.full_messages.each do |msg| %>
+          <%= msg %>
+      <% end %>
+    </p>
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :sum %><br>
+      <%= f.text_field :sum %>
+    </p>
+
+    <p>
+      <%= f.label :critical_amount %><br>
+      <%= f.text_field :critical_amount %>
+    </p>
+
+    <p>
+      <%= f.label :send_notifications %><br>
+      <%= f.check_box :send_notifications %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+<%= link_to 'Back', accounts_path %>

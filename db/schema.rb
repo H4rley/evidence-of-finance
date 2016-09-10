@@ -11,16 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909121402) do
+ActiveRecord::Schema.define(version: 20160910055002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "send_notifications"
+    t.integer  "critical_amount"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.decimal  "sum"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.integer  "account_id"
+    t.string   "purpose"
+    t.decimal  "sum"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "movement"
+  end
+
+  add_index "transactions", ["account_id"], name: "index_transactions_on_account_id", using: :btree
+  add_index "transactions", ["category_id"], name: "index_transactions_on_category_id", using: :btree
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                             default: "", null: false
@@ -52,5 +76,8 @@ ActiveRecord::Schema.define(version: 20160909121402) do
 
   add_index "users_sessions", ["user_id"], name: "index_users_sessions_on_user_id", using: :btree
 
+  add_foreign_key "transactions", "accounts"
+  add_foreign_key "transactions", "categories"
+  add_foreign_key "transactions", "users"
   add_foreign_key "users_sessions", "users"
 end

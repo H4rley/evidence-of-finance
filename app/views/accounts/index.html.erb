@@ -1,0 +1,14 @@
+<h1>Accounts</h1>
+<p>
+  <%= link_to 'Add new account', new_account_path %>
+</p>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Critical amount</th>
+    <th>Send notifications?</th>
+    <th></th>
+  </tr>
+  <%= render @accounts %>
+</table>

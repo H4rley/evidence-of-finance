@@ -6,6 +6,15 @@
 <table class="table">
   <tr>
     <th>Name</th>
+    <th>
+      <%= form_for :date, url: 'categories', method: 'get' do |f| %>
+        <%= f.label :from %>
+        <%= f.date_select :from, { default: @start_date } %>
+        <%= f.label :to, { default: @end_date } %>
+        <%= f.date_select :to %>
+        <%= f.submit 'Filter sum' %>
+      <% end %>
+    </th>
     <th></th>
   </tr>
     <%= render @categories %>

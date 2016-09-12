@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all.order :name
-    @start_date = filter_params.blank? ? Transaction.order(:created_at).first.created_at : get_date[:start_date].to_date
+    @start_date = filter_params.blank? ? oldest_transaction : get_date[:start_date].to_date
     @end_date = filter_params.blank? ? Time.now : get_date[:end_date].to_date
   end
 
@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new category_params
     if @category.save
-      redirect_to categories_path, notice: "Category was successfulyy created."
+      redirect_to categories_path, notice: "Category was successfully created."
     else
       render :new
     end
@@ -48,5 +48,9 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def oldest_transaction
+    Transaction.order(:created_at).first.present? ? Transaction.order(:created_at).first.created_at : Time.now
   end
 end

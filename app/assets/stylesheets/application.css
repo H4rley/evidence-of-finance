@@ -16,4 +16,16 @@
 body { padding-top: 100px; }
 footer { margin-top: 100px; }
 table, td, th { vertical-align: middle; border: none; }
+table {margin-top: 20px;}
 th { border-bottom: 1px solid #DDD; }
+
+.date-select {
+    max-width: 100px;
+    display: inline;
+}
+
+h1,h2{display: inline;}
+
+.container {
+    max-width: 1100px;
+}

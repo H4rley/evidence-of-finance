@@ -1,16 +1,16 @@
 <h1>Accounts</h1>
-<p>
-  <%= link_to 'Add new account', new_account_path %>
-</p>
+<%= link_to 'Add new account', new_account_path, class: 'btn btn-primary pull-right' %>
 
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Actual sum</th>
-    <th>Critical amount</th>
-    <th>Send notifications?</th>
-    <th>Show transactions</th>
-    <th></th>
-  </tr>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actual sum</th>
+      <th>Critical amount</th>
+      <th>Send notifications?</th>
+      <th>Show transactions</th>
+      <th></th>
+    </tr>
+  </thead>
   <%= render @accounts %>
 </table>

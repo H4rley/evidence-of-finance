@@ -1,17 +1,17 @@
 <h1>
   <%= "Transactions on account #{@account.name}" %>
 </h1>
-<p>
-  <%= link_to 'Add new transaction', new_account_transaction_path %>
-</p>
+<%= link_to 'Add new transaction', new_account_transaction_path, class: 'btn btn-primary pull-right' %>
 
-<table class="table">
-  <tr>
-    <th>User name</th>
-    <th>Created at</th>
-    <th>Purpose</th>
-    <th>Sum</th>
-    <th>Category</th>
-  </tr>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>User name</th>
+      <th>Created at</th>
+      <th>Purpose</th>
+      <th>Sum</th>
+      <th>Category</th>
+    </tr>
+  </thead>
   <%= render @transactions %>
 </table>

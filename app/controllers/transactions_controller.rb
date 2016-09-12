@@ -16,8 +16,9 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = @account.transactions.new transaction_params.merge(user_id: current_user.id)
-
-    if ::Transactions::Provider.new(account: @account, transaction: @transaction).update_account
+    provider = ::Transactions::Provider.new(account: @account, transaction: @transaction)
+    if provider.update_account
+      provider.notify_user
       redirect_to account_transactions_path, notice: "Transaction was successfully created."
     end
   end

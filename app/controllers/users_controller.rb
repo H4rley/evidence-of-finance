@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all.order :email
+    @sort_strategy = order_params
+    @users = User.all.order email: @sort_strategy
   end
 
   def show

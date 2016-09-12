@@ -3,28 +3,27 @@
 <head>
   <title>EvidenceOfFinance</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Users", users_path %></li>
-        <li><%= link_to "Accounts", accounts_path %></li>
-        <% if current_user %>
-          <li><%= link_to "Log out", destroy_user_session_path({type: 'direct'}), method: 'delete' %></li>
-        <% else %>
-            <li><%= link_to "Log in", new_user_session_path %></li>
-            <li><%= link_to "Sing up",  new_user_registration_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <nav>
+        <ul class="nav navbar-nav pull-right">
+          <li><%= link_to "Categories", root_path %></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Accounts", accounts_path %></li>
+          <% if current_user %>
+              <li><%= link_to "Log out", destroy_user_session_path({type: 'direct'}), method: 'delete' %></li>
+          <% else %>
+              <li><%= link_to "Log in", new_user_session_path %></li>
+              <li><%= link_to "Sing up",  new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
 </header>
 <div class="container">
   <% if notice %>

@@ -3,6 +3,9 @@
     <%= category.name %>
   </td>
   <td>
-    <%= link_to 'Edit', edit_category_path(category) %>
+    <%= "Incomes: #{category.total_incomes(@start_date, @end_date)}, Outcomes: #{category.total_outcomes(@start_date, @end_date)}" %>
+  </td>
+  <td>
+    <%= link_to 'Edit', edit_category_path(category), class: 'btn btn-default' %>
   </td>
 </tr>

@@ -1,7 +1,8 @@
 class AccountsController < ApplicationController
 
   def index
-    @accounts = Account.all.order :name
+    @sort_strategy = order_params
+    @accounts = Account.all.order name: @sort_strategy
   end
 
   def edit

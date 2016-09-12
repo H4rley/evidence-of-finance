@@ -1,9 +1,16 @@
 <h1>Users</h1>
 
-<table class="table">
-  <tr>
-    <th>Email</th>
-    <th></th>
-  </tr>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>
+        Email
+        <%= link_to users_path(sort_items: sort_params(@sort_strategy)) do %>
+            <%= content_tag(:span, "", :class => glyph_chevron(@sort_strategy) ) %>
+        <% end %>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
   <%= render @users %>
 </table>

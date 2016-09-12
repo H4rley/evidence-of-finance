@@ -16,4 +16,34 @@
 body { padding-top: 100px; }
 footer { margin-top: 100px; }
 table, td, th { vertical-align: middle; border: none; }
+table {margin-top: 20px;}
 th { border-bottom: 1px solid #DDD; }
+
+.date-select {
+    max-width: 55px;
+    display: inline;
+}
+
+h1,h2{display: inline;}
+
+.container {
+    max-width: 950px;
+}
+
+.block-heading {
+    display: block;
+    margin-left: 25%;
+    margin-right:25%;
+    width: 100%;
+}
+
+.reg-inputs {
+    max-width: 300px;
+}
+
+.reg-form {
+    margin-top: 30px;
+    margin-left: 25%;
+    margin-right:25%;
+    width: 100%;
+}

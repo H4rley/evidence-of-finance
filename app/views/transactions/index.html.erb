@@ -7,7 +7,12 @@
   <thead>
     <tr>
       <th>User name</th>
-      <th>Created at</th>
+      <th>
+        Created at
+        <%= link_to account_transactions_path(sort_items: sort_params(@sort_strategy)) do %>
+            <%= content_tag(:span, "", :class => glyph_chevron(@sort_strategy) ) %>
+        <% end %>
+      </th>
       <th>Purpose</th>
       <th>Sum</th>
       <th>Category</th>

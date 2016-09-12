@@ -4,13 +4,18 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>
+        Name
+        <%= link_to categories_path(sort_items: sort_params(@sort_strategy)) do %>
+            <%= content_tag(:span, "", :class => glyph_chevron(@sort_strategy) ) %>
+        <% end %>
+      </th>
       <th>
         <%= form_for :date, url: 'categories', method: 'get' do |f| %>
           <%= f.label :from %>
-          <%= f.date_select :from, { default: @start_date }, class: 'form-control date-select' %>
+          <%= f.date_select :from, { default: @start_date, use_month_numbers: true }, class: 'form-control date-select' %>
           <%= f.label :to %>
-          <%= f.date_select :to, { default: @end_date }, class: 'form-control date-select' %>
+          <%= f.date_select :to, { default: @end_date, use_month_numbers: true }, class: 'form-control date-select' %>
           <%= f.submit 'Filter sum', class: 'btn btn-default' %>
         <% end %>
       </th>

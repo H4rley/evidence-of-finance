@@ -7,7 +7,8 @@ class TransactionsController < ApplicationController
   end
 
   def index
-    @transactions = @account.transactions
+    @sort_strategy = order_params
+    @transactions = @account.transactions.order created_at: @sort_strategy
   end
 
   def new

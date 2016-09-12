@@ -4,7 +4,12 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>
+        Name
+        <%= link_to accounts_path(sort_items: sort_params(@sort_strategy)) do %>
+            <%= content_tag(:span, "", :class => glyph_chevron(@sort_strategy) ) %>
+        <% end %>
+      </th>
       <th>Actual sum</th>
       <th>Critical amount</th>
       <th>Send notifications?</th>

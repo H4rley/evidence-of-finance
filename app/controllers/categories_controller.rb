@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
+    TransactionsImportJob.delay.perform_later
     @sort_strategy = order_params
     @categories = Category.all.order name: @sort_strategy
     @start_date = filter_params.blank? ? oldest_transaction : get_date[:start_date].to_date

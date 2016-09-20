@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<transaction unique_id="unique_string10">
+  <user>viktoria.lovasova@gmail.com</user>
+  <category>Work</category>
+  <account>Senior</account>
+  <purpose>Dress</purpose>
+  <sum>500</sum>
+  <movement>output</movement>
+</transaction>
